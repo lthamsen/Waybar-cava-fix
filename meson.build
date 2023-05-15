@@ -342,14 +342,14 @@ if get_option('experimental')
 endif
 
 cava = dependency('cava',
-                  required: get_option('cava'),
-                  fallback : ['cava', 'cava_dep'],
+                  # required: get_option('cava'),
+                  # fallback : ['cava', 'cava_dep'],
                   not_found_message: 'cava is not found. Building waybar without cava')
 
-if cava.found()
-   add_project_arguments('-DHAVE_LIBCAVA', language: 'cpp')
-   src_files += 'src/modules/cava.cpp'
-endif
+# if cava.found()
+add_project_arguments('-DHAVE_LIBCAVA', language: 'cpp')
+src_files += 'src/modules/cava.cpp'
+# endif
 
 subdir('protocol')
 
@@ -384,8 +384,8 @@ executable(
         gtk_layer_shell,
         libsndio,
         tz_dep,
-		xkbregistry,
-        cava
+        xkbregistry,
+        cava,
     ],
     include_directories: inc_dirs,
     install: true,

@@ -23,5 +23,3 @@ test:
 	meson test -C build --no-rebuild --verbose --suite waybar
 .PHONY: test
 
-clean:
-	rm -rf build
